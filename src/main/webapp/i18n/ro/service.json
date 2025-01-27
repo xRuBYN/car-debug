@@ -1,0 +1,32 @@
+{
+  "monitoringApp": {
+    "service": {
+      "home": {
+        "title": "Services",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Creeare o nouă entitate Service",
+        "createOrEditLabel": "Creeare sau editare Service",
+        "notFound": "No Services found"
+      },
+      "created": "A fost creată o nouă entitate Service cu identificatorul {{ param }}",
+      "updated": "Service cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Service cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Service {{ id }}?"
+      },
+      "detail": {
+        "title": "Service"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "price": "Price",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "photos": "Photos",
+      "vehicle": "Vehicle"
+    }
+  }
+}

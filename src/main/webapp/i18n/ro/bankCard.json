@@ -1,0 +1,27 @@
+{
+  "monitoringApp": {
+    "bankCard": {
+      "home": {
+        "title": "Bank Cards",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Creeare o nouă entitate Bank Card",
+        "createOrEditLabel": "Creeare sau editare Bank Card",
+        "notFound": "No Bank Cards found"
+      },
+      "created": "A fost creată o nouă entitate Bank Card cu identificatorul {{ param }}",
+      "updated": "Bank Card cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Bank Card cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Bank Card {{ id }}?"
+      },
+      "detail": {
+        "title": "Bank Card"
+      },
+      "id": "Id",
+      "cardCode": "Card Code",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "cvv": "Cvv"
+    }
+  }
+}

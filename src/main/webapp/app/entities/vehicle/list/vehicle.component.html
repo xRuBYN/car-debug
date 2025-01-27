@@ -1,0 +1,102 @@
+<div>
+  <h2 id="page-heading" data-cy="VehicleHeading">
+    <span jhiTranslate="monitoringApp.vehicle.home.title">Vehicles</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="monitoringApp.vehicle.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-vehicle"
+        [routerLink]="['/vehicle/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="monitoringApp.vehicle.home.createLabel">Create a new Vehicle</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (vehicles?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="monitoringApp.vehicle.home.notFound">No Vehicles found</span>
+    </div>
+  }
+
+  @if (vehicles && vehicles.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="vin">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.vehicle.vin">Vin</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="make">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.vehicle.make">Make</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="model">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.vehicle.model">Model</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="year">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.vehicle.year">Year</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (vehicle of vehicles; track trackVin) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/vehicle', vehicle.vin, 'view']">{{ vehicle.vin }}</a>
+              </td>
+              <td>{{ vehicle.make }}</td>
+              <td>{{ vehicle.model }}</td>
+              <td>{{ vehicle.year }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/vehicle', vehicle.vin, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/vehicle', vehicle.vin, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(vehicle)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

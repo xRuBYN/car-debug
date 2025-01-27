@@ -1,0 +1,25 @@
+{
+  "monitoringApp": {
+    "planConfig": {
+      "home": {
+        "title": "Plan Configs",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Plan Config",
+        "createOrEditLabel": "Создать или отредактировать Plan Config",
+        "notFound": "Plan Configs не найдено"
+      },
+      "created": "Новый Plan Config создан с идентификатором {{ param }}",
+      "updated": "Plan Config обновлен с идентификатором {{ param }}",
+      "deleted": "Plan Config удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Plan Config {{ id }}?"
+      },
+      "detail": {
+        "title": "Plan Config"
+      },
+      "id": "ID",
+      "price": "Price",
+      "attempts": "Attempts"
+    }
+  }
+}

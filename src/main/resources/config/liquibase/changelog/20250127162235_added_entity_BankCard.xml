@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!--
+        Added the entity BankCard.
+    -->
+    <changeSet id="20250127162235-1" author="ursu">
+        <createTable tableName="bank_card">
+            <column name="id" type="${uuidType}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="card_code" type="varchar(16)">
+                <constraints nullable="false" />
+            </column>
+            <column name="first_name" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="last_name" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="cvv" type="varchar(3)">
+                <constraints nullable="false" />
+            </column>
+            <column name="user_id" type="bigint">
+              <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

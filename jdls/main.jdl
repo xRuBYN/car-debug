@@ -1,0 +1,72 @@
+entity BankCard {
+  @id id UUID required
+  cardCode String required maxlength(16)
+  firstName String required maxlength(50)
+  lastName String required maxlength(50)
+  cvv String required maxlength(3)
+}
+
+enum PlanType {
+  FREE,
+  PREMIUM,
+  PRO
+}
+
+entity PlanConfig {
+  price BigDecimal required
+  attempts Long required
+}
+
+entity Vehicle {
+  @id vin String required,
+  make String required,
+  model String required,
+  year Integer required,
+}
+
+entity Inspection {
+  description String
+  createdBy String required maxlength(50)
+  createdDate Instant required
+  lastModifiedBy String maxlength(50)
+  lastModifiedDate Instant
+}
+
+entity Accident {
+  description String
+  createdBy String required maxlength(50)
+  createdDate Instant required
+  lastModifiedBy String maxlength(50)
+  lastModifiedDate Instant
+}
+
+entity Service {
+  name String required,
+  description String,
+  price Double required
+  createdBy String required maxlength(50)
+  createdDate Instant required
+  lastModifiedBy String maxlength(50)
+  lastModifiedDate Instant
+}
+
+entity Photo {
+  @id id UUID required,
+  path String
+  createdBy String required maxlength(50)
+  createdDate Instant required
+  lastModifiedBy String maxlength(50)
+  lastModifiedDate Instant
+}
+
+relationship OneToMany {
+  Vehicle { inspections } to Inspection { vehicle },
+  Vehicle { accidents } to Accident { vehicle }
+  Vehicle { services } to Service { vehicle }
+  Vehicle { photos } to Photo
+  Inspection { photos } to Photo,
+  Accident { photos } to Photo,
+  Service { photos } to Photo
+}
+
+

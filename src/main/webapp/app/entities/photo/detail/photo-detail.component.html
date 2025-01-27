@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (photo(); as photoRef) {
+      <div>
+        <h2 data-cy="photoDetailsHeading"><span jhiTranslate="monitoringApp.photo.detail.title">Photo</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="monitoringApp.photo.id">Id</span></dt>
+          <dd>
+            <span>{{ photoRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.photo.path">Path</span></dt>
+          <dd>
+            <span>{{ photoRef.path }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.photo.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ photoRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.photo.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ photoRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.photo.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ photoRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.photo.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ photoRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.photo.vehicle">Vehicle</span></dt>
+          <dd>
+            @if (photo()!.vehicle) {
+              <div>
+                <a [routerLink]="['/vehicle', photo()!.vehicle?.vin, 'view']">{{ photoRef.vehicle?.vin }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.photo.inspection">Inspection</span></dt>
+          <dd>
+            @if (photo()!.inspection) {
+              <div>
+                <a [routerLink]="['/inspection', photo()!.inspection?.id, 'view']">{{ photoRef.inspection?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.photo.accident">Accident</span></dt>
+          <dd>
+            @if (photo()!.accident) {
+              <div>
+                <a [routerLink]="['/accident', photo()!.accident?.id, 'view']">{{ photoRef.accident?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.photo.service">Service</span></dt>
+          <dd>
+            @if (photo()!.service) {
+              <div>
+                <a [routerLink]="['/service', photo()!.service?.id, 'view']">{{ photoRef.service?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/photo', photoRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "monitoringApp": {
+    "bankCard": {
+      "home": {
+        "title": "Bank Cards",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bank Card",
+        "createOrEditLabel": "Create or edit a Bank Card",
+        "notFound": "No Bank Cards found"
+      },
+      "created": "A new Bank Card is created with identifier {{ param }}",
+      "updated": "A Bank Card is updated with identifier {{ param }}",
+      "deleted": "A Bank Card is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bank Card {{ id }}?"
+      },
+      "detail": {
+        "title": "Bank Card"
+      },
+      "id": "Id",
+      "cardCode": "Card Code",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "cvv": "Cvv"
+    }
+  }
+}

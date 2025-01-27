@@ -1,0 +1,30 @@
+{
+  "monitoringApp": {
+    "inspection": {
+      "home": {
+        "title": "Inspections",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Inspection",
+        "createOrEditLabel": "Создать или отредактировать Inspection",
+        "notFound": "Inspections не найдено"
+      },
+      "created": "Новый Inspection создан с идентификатором {{ param }}",
+      "updated": "Inspection обновлен с идентификатором {{ param }}",
+      "deleted": "Inspection удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Inspection {{ id }}?"
+      },
+      "detail": {
+        "title": "Inspection"
+      },
+      "id": "ID",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "photos": "Photos",
+      "vehicle": "Vehicle"
+    }
+  }
+}

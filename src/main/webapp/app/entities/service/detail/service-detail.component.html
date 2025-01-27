@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (service(); as serviceRef) {
+      <div>
+        <h2 data-cy="serviceDetailsHeading"><span jhiTranslate="monitoringApp.service.detail.title">Service</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ serviceRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.service.name">Name</span></dt>
+          <dd>
+            <span>{{ serviceRef.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.service.description">Description</span></dt>
+          <dd>
+            <span>{{ serviceRef.description }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.service.price">Price</span></dt>
+          <dd>
+            <span>{{ serviceRef.price }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.service.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ serviceRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.service.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ serviceRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.service.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ serviceRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.service.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ serviceRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.service.vehicle">Vehicle</span></dt>
+          <dd>
+            @if (service()!.vehicle) {
+              <div>
+                <a [routerLink]="['/vehicle', service()!.vehicle?.vin, 'view']">{{ serviceRef.vehicle?.vin }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/service', serviceRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

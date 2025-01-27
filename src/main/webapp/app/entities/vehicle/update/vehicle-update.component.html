@@ -1,0 +1,92 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-vehicle-heading" data-cy="VehicleCreateUpdateHeading" jhiTranslate="monitoringApp.vehicle.home.createOrEditLabel">
+        Create or edit a Vehicle
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @let vinRef = editForm.get('vin')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_vin" jhiTranslate="monitoringApp.vehicle.vin">Vin</label>
+          <input
+            type="text"
+            class="form-control"
+            name="vin"
+            id="field_vin"
+            data-cy="vin"
+            formControlName="vin"
+            [readonly]="editForm.get('vin')!.disabled"
+          />
+          @if (vinRef.invalid && (vinRef.dirty || vinRef.touched)) {
+            <div>
+              @if (editForm.get('vin')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let makeRef = editForm.get('make')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_make" jhiTranslate="monitoringApp.vehicle.make">Make</label>
+          <input type="text" class="form-control" name="make" id="field_make" data-cy="make" formControlName="make" />
+          @if (makeRef.invalid && (makeRef.dirty || makeRef.touched)) {
+            <div>
+              @if (editForm.get('make')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let modelRef = editForm.get('model')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_model" jhiTranslate="monitoringApp.vehicle.model">Model</label>
+          <input type="text" class="form-control" name="model" id="field_model" data-cy="model" formControlName="model" />
+          @if (modelRef.invalid && (modelRef.dirty || modelRef.touched)) {
+            <div>
+              @if (editForm.get('model')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let yearRef = editForm.get('year')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_year" jhiTranslate="monitoringApp.vehicle.year">Year</label>
+          <input type="number" class="form-control" name="year" id="field_year" data-cy="year" formControlName="year" />
+          @if (yearRef.invalid && (yearRef.dirty || yearRef.touched)) {
+            <div>
+              @if (editForm.get('year')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!editForm.get('year')?.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

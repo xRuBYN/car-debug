@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (orderHistory(); as orderHistoryRef) {
+      <div>
+        <h2 data-cy="orderHistoryDetailsHeading"><span jhiTranslate="monitoringApp.orderHistory.detail.title">Order History</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="monitoringApp.orderHistory.id">Id</span></dt>
+          <dd>
+            <span>{{ orderHistoryRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.orderHistory.userId">User Id</span></dt>
+          <dd>
+            <span>{{ orderHistoryRef.userId }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.orderHistory.planType">Plan Type</span></dt>
+          <dd>
+            <span>{{ orderHistoryRef.planType }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.orderHistory.amount">Amount</span></dt>
+          <dd>
+            <span>{{ orderHistoryRef.amount }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.orderHistory.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ orderHistoryRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.orderHistory.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ orderHistoryRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.orderHistory.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ orderHistoryRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.orderHistory.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ orderHistoryRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/order-history', orderHistoryRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

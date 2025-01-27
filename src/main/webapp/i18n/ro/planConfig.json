@@ -1,0 +1,25 @@
+{
+  "monitoringApp": {
+    "planConfig": {
+      "home": {
+        "title": "Plan Configs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Creeare o nouă entitate Plan Config",
+        "createOrEditLabel": "Creeare sau editare Plan Config",
+        "notFound": "No Plan Configs found"
+      },
+      "created": "A fost creată o nouă entitate Plan Config cu identificatorul {{ param }}",
+      "updated": "Plan Config cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Plan Config cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Plan Config {{ id }}?"
+      },
+      "detail": {
+        "title": "Plan Config"
+      },
+      "id": "ID",
+      "price": "Price",
+      "attempts": "Attempts"
+    }
+  }
+}

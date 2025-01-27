@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!--
+        Added the entity OrderHistory.
+    -->
+    <changeSet id="20250127203621-1" author="ursu">
+        <createTable tableName="order_history">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="plan_type" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="amount" type="decimal(21,2)">
+                <constraints nullable="false" />
+            </column>
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="created_date" type="${datetimeType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="last_modified_by" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="order_history" columnName="created_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="order_history" columnName="last_modified_date" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <changeSet id="20250127203621-2" author="ursu">
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="order_history"
+                                 constraintName="fk_user_order_history"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+
+
+
+</databaseChangeLog>

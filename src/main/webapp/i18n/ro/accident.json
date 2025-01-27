@@ -1,0 +1,30 @@
+{
+  "monitoringApp": {
+    "accident": {
+      "home": {
+        "title": "Accidents",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Creeare o nouă entitate Accident",
+        "createOrEditLabel": "Creeare sau editare Accident",
+        "notFound": "No Accidents found"
+      },
+      "created": "A fost creată o nouă entitate Accident cu identificatorul {{ param }}",
+      "updated": "Accident cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Accident cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Accident {{ id }}?"
+      },
+      "detail": {
+        "title": "Accident"
+      },
+      "id": "ID",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "photos": "Photos",
+      "vehicle": "Vehicle"
+    }
+  }
+}

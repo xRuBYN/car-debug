@@ -1,0 +1,30 @@
+{
+  "monitoringApp": {
+    "accident": {
+      "home": {
+        "title": "Accidents",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Accident",
+        "createOrEditLabel": "Создать или отредактировать Accident",
+        "notFound": "Accidents не найдено"
+      },
+      "created": "Новый Accident создан с идентификатором {{ param }}",
+      "updated": "Accident обновлен с идентификатором {{ param }}",
+      "deleted": "Accident удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Accident {{ id }}?"
+      },
+      "detail": {
+        "title": "Accident"
+      },
+      "id": "ID",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "photos": "Photos",
+      "vehicle": "Vehicle"
+    }
+  }
+}

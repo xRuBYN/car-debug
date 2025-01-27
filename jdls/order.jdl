@@ -1,0 +1,10 @@
+entity OrderHistory {
+  @id id Long
+  userId Long required
+  planType String required maxlength(50)
+  amount BigDecimal required
+  createdBy String required maxlength(50)
+  createdDate Instant required
+  lastModifiedBy String maxlength(50)
+  lastModifiedDate Instant
+}

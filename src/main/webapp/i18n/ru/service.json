@@ -1,0 +1,32 @@
+{
+  "monitoringApp": {
+    "service": {
+      "home": {
+        "title": "Services",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Service",
+        "createOrEditLabel": "Создать или отредактировать Service",
+        "notFound": "Services не найдено"
+      },
+      "created": "Новый Service создан с идентификатором {{ param }}",
+      "updated": "Service обновлен с идентификатором {{ param }}",
+      "deleted": "Service удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Service {{ id }}?"
+      },
+      "detail": {
+        "title": "Service"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "price": "Price",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "photos": "Photos",
+      "vehicle": "Vehicle"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (vehicle(); as vehicleRef) {
+      <div>
+        <h2 data-cy="vehicleDetailsHeading"><span jhiTranslate="monitoringApp.vehicle.detail.title">Vehicle</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="monitoringApp.vehicle.vin">Vin</span></dt>
+          <dd>
+            <span>{{ vehicleRef.vin }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.vehicle.make">Make</span></dt>
+          <dd>
+            <span>{{ vehicleRef.make }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.vehicle.model">Model</span></dt>
+          <dd>
+            <span>{{ vehicleRef.model }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.vehicle.year">Year</span></dt>
+          <dd>
+            <span>{{ vehicleRef.year }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/vehicle', vehicleRef.vin, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

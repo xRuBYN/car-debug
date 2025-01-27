@@ -1,0 +1,30 @@
+{
+  "monitoringApp": {
+    "inspection": {
+      "home": {
+        "title": "Inspections",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Creeare o nouă entitate Inspection",
+        "createOrEditLabel": "Creeare sau editare Inspection",
+        "notFound": "No Inspections found"
+      },
+      "created": "A fost creată o nouă entitate Inspection cu identificatorul {{ param }}",
+      "updated": "Inspection cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Inspection cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Inspection {{ id }}?"
+      },
+      "detail": {
+        "title": "Inspection"
+      },
+      "id": "ID",
+      "description": "Description",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "photos": "Photos",
+      "vehicle": "Vehicle"
+    }
+  }
+}

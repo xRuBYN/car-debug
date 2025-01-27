@@ -1,0 +1,30 @@
+{
+  "monitoringApp": {
+    "vehicle": {
+      "home": {
+        "title": "Vehicles",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Creeare o nouă entitate Vehicle",
+        "createOrEditLabel": "Creeare sau editare Vehicle",
+        "notFound": "No Vehicles found"
+      },
+      "created": "A fost creată o nouă entitate Vehicle cu identificatorul {{ param }}",
+      "updated": "Vehicle cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Vehicle cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Vehicle {{ id }}?"
+      },
+      "detail": {
+        "title": "Vehicle"
+      },
+      "vin": "Vin",
+      "make": "Make",
+      "model": "Model",
+      "year": "Year",
+      "inspections": "Inspections",
+      "accidents": "Accidents",
+      "services": "Services",
+      "photos": "Photos"
+    }
+  }
+}

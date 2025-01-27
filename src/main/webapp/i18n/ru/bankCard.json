@@ -1,0 +1,27 @@
+{
+  "monitoringApp": {
+    "bankCard": {
+      "home": {
+        "title": "Bank Cards",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Bank Card",
+        "createOrEditLabel": "Создать или отредактировать Bank Card",
+        "notFound": "Bank Cards не найдено"
+      },
+      "created": "Новый Bank Card создан с идентификатором {{ param }}",
+      "updated": "Bank Card обновлен с идентификатором {{ param }}",
+      "deleted": "Bank Card удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Bank Card {{ id }}?"
+      },
+      "detail": {
+        "title": "Bank Card"
+      },
+      "id": "Id",
+      "cardCode": "Card Code",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "cvv": "Cvv"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "monitoringApp": {
+    "orderHistory": {
+      "home": {
+        "title": "Order Histories",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Order History",
+        "createOrEditLabel": "Создать или отредактировать Order History",
+        "notFound": "Order Histories не найдено"
+      },
+      "created": "Новый Order History создан с идентификатором {{ param }}",
+      "updated": "Order History обновлен с идентификатором {{ param }}",
+      "deleted": "Order History удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Order History {{ id }}?"
+      },
+      "detail": {
+        "title": "Order History"
+      },
+      "id": "Id",
+      "userId": "User Id",
+      "planType": "Plan Type",
+      "amount": "Amount",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date"
+    }
+  }
+}

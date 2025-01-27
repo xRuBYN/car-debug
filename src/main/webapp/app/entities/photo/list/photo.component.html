@@ -1,0 +1,170 @@
+<div>
+  <h2 id="page-heading" data-cy="PhotoHeading">
+    <span jhiTranslate="monitoringApp.photo.home.title">Photos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="monitoringApp.photo.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-photo"
+        [routerLink]="['/photo/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="monitoringApp.photo.home.createLabel">Create a new Photo</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (photos?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="monitoringApp.photo.home.notFound">No Photos found</span>
+    </div>
+  }
+
+  @if (photos && photos.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.photo.id">Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="path">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.photo.path">Path</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="createdBy">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.photo.createdBy">Created By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="createdDate">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.photo.createdDate">Created Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastModifiedBy">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.photo.lastModifiedBy">Last Modified By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastModifiedDate">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.photo.lastModifiedDate">Last Modified Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="vehicle.vin">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.photo.vehicle">Vehicle</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="inspection.id">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.photo.inspection">Inspection</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="accident.id">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.photo.accident">Accident</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="service.id">
+              <div class="d-flex">
+                <span jhiTranslate="monitoringApp.photo.service">Service</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (photo of photos; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/photo', photo.id, 'view']">{{ photo.id }}</a>
+              </td>
+              <td>{{ photo.path }}</td>
+              <td>{{ photo.createdBy }}</td>
+              <td>{{ photo.createdDate | formatMediumDatetime }}</td>
+              <td>{{ photo.lastModifiedBy }}</td>
+              <td>{{ photo.lastModifiedDate | formatMediumDatetime }}</td>
+              <td>
+                @if (photo.vehicle) {
+                  <div>
+                    <a [routerLink]="['/vehicle', photo.vehicle.vin, 'view']">{{ photo.vehicle.vin }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (photo.inspection) {
+                  <div>
+                    <a [routerLink]="['/inspection', photo.inspection.id, 'view']">{{ photo.inspection.id }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (photo.accident) {
+                  <div>
+                    <a [routerLink]="['/accident', photo.accident.id, 'view']">{{ photo.accident.id }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (photo.service) {
+                  <div>
+                    <a [routerLink]="['/service', photo.service.id, 'view']">{{ photo.service.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/photo', photo.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/photo', photo.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(photo)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

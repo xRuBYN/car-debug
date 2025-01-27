@@ -1,0 +1,30 @@
+{
+  "monitoringApp": {
+    "orderHistory": {
+      "home": {
+        "title": "Order Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Order History",
+        "createOrEditLabel": "Create or edit a Order History",
+        "notFound": "No Order Histories found"
+      },
+      "created": "A new Order History is created with identifier {{ param }}",
+      "updated": "A Order History is updated with identifier {{ param }}",
+      "deleted": "A Order History is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Order History {{ id }}?"
+      },
+      "detail": {
+        "title": "Order History"
+      },
+      "id": "Id",
+      "userId": "User Id",
+      "planType": "Plan Type",
+      "amount": "Amount",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date"
+    }
+  }
+}

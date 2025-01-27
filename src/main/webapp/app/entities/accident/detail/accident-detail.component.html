@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (accident(); as accidentRef) {
+      <div>
+        <h2 data-cy="accidentDetailsHeading"><span jhiTranslate="monitoringApp.accident.detail.title">Accident</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ accidentRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.accident.description">Description</span></dt>
+          <dd>
+            <span>{{ accidentRef.description }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.accident.createdBy">Created By</span></dt>
+          <dd>
+            <span>{{ accidentRef.createdBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.accident.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ accidentRef.createdDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.accident.lastModifiedBy">Last Modified By</span></dt>
+          <dd>
+            <span>{{ accidentRef.lastModifiedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.accident.lastModifiedDate">Last Modified Date</span></dt>
+          <dd>
+            <span>{{ accidentRef.lastModifiedDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.accident.vehicle">Vehicle</span></dt>
+          <dd>
+            @if (accident()!.vehicle) {
+              <div>
+                <a [routerLink]="['/vehicle', accident()!.vehicle?.vin, 'view']">{{ accidentRef.vehicle?.vin }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/accident', accidentRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

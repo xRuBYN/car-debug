@@ -1,0 +1,25 @@
+{
+  "monitoringApp": {
+    "planConfig": {
+      "home": {
+        "title": "Plan Configs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Plan Config",
+        "createOrEditLabel": "Create or edit a Plan Config",
+        "notFound": "No Plan Configs found"
+      },
+      "created": "A new Plan Config is created with identifier {{ param }}",
+      "updated": "A Plan Config is updated with identifier {{ param }}",
+      "deleted": "A Plan Config is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Plan Config {{ id }}?"
+      },
+      "detail": {
+        "title": "Plan Config"
+      },
+      "id": "ID",
+      "price": "Price",
+      "attempts": "Attempts"
+    }
+  }
+}

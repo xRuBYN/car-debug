@@ -1,0 +1,32 @@
+{
+  "monitoringApp": {
+    "photo": {
+      "home": {
+        "title": "Photos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Creeare o nouă entitate Photo",
+        "createOrEditLabel": "Creeare sau editare Photo",
+        "notFound": "No Photos found"
+      },
+      "created": "A fost creată o nouă entitate Photo cu identificatorul {{ param }}",
+      "updated": "Photo cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Photo cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Photo {{ id }}?"
+      },
+      "detail": {
+        "title": "Photo"
+      },
+      "id": "Id",
+      "path": "Path",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "vehicle": "Vehicle",
+      "inspection": "Inspection",
+      "accident": "Accident",
+      "service": "Service"
+    }
+  }
+}
