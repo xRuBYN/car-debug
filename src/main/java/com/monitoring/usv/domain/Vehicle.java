@@ -25,7 +25,7 @@ public class Vehicle implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "vin", nullable = false)
+    @Column(name = "vin", unique = true, nullable = false)
     private String vin;
 
     @NotNull
