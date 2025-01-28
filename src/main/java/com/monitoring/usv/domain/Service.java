@@ -52,6 +52,7 @@ public class Service implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "inspections", "accidents", "services", "photos" }, allowSetters = true)
+    @JoinColumn(name = "vehicle_vin", nullable = false, referencedColumnName = "vin")
     private Vehicle vehicle;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

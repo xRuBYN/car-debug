@@ -30,4 +30,12 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="20250127162235-2" author="ursu">
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="bank_card"
+                                 constraintName="fk_user_bank_card"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+
 </databaseChangeLog>
