@@ -1,35 +1,29 @@
 package com.monitoring.usv.domain;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-import java.io.Serializable;
 import java.time.Instant;
 import java.util.UUID;
 
-/**
- * A Photo.
- */
 @Entity
-@Table(name = "photo")
-@SuppressWarnings("common-java:DuplicatedBlocks")
-public class Photo implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @NotNull
+@Table(name = "photo", schema = "public")
+public class Photo {
     @Id
-    @GeneratedValue
     @Column(name = "id", nullable = false)
     private UUID id;
 
+    @Size(max = 255)
     @Column(name = "path")
     private String path;
 
-    @NotNull
     @Size(max = 50)
-    @Column(name = "created_by", length = 50, nullable = false)
+    @NotNull
+    @Column(name = "created_by", nullable = false, length = 50)
     private String createdBy;
 
     @NotNull
@@ -43,23 +37,17 @@ public class Photo implements Serializable {
     @Column(name = "last_modified_date")
     private Instant lastModifiedDate;
 
+    @Size(max = 255)
     @NotNull
-    @Column(name = "bucket_name")
+    @Column(name = "bucket_name", nullable = false)
     private String bucketName;
 
     @NotNull
+    @Column(name = "entity_id", nullable = false)
     private Long entityId;
 
-
-    // jhipster-needle-entity-add-field - JHipster will add fields here
-
     public UUID getId() {
-        return this.id;
-    }
-
-    public Photo id(UUID id) {
-        this.setId(id);
-        return this;
+        return id;
     }
 
     public void setId(UUID id) {
@@ -67,12 +55,7 @@ public class Photo implements Serializable {
     }
 
     public String getPath() {
-        return this.path;
-    }
-
-    public Photo path(String path) {
-        this.setPath(path);
-        return this;
+        return path;
     }
 
     public void setPath(String path) {
@@ -80,12 +63,7 @@ public class Photo implements Serializable {
     }
 
     public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public Photo createdBy(String createdBy) {
-        this.setCreatedBy(createdBy);
-        return this;
+        return createdBy;
     }
 
     public void setCreatedBy(String createdBy) {
@@ -93,12 +71,7 @@ public class Photo implements Serializable {
     }
 
     public Instant getCreatedDate() {
-        return this.createdDate;
-    }
-
-    public Photo createdDate(Instant createdDate) {
-        this.setCreatedDate(createdDate);
-        return this;
+        return createdDate;
     }
 
     public void setCreatedDate(Instant createdDate) {
@@ -106,12 +79,7 @@ public class Photo implements Serializable {
     }
 
     public String getLastModifiedBy() {
-        return this.lastModifiedBy;
-    }
-
-    public Photo lastModifiedBy(String lastModifiedBy) {
-        this.setLastModifiedBy(lastModifiedBy);
-        return this;
+        return lastModifiedBy;
     }
 
     public void setLastModifiedBy(String lastModifiedBy) {
@@ -119,12 +87,7 @@ public class Photo implements Serializable {
     }
 
     public Instant getLastModifiedDate() {
-        return this.lastModifiedDate;
-    }
-
-    public Photo lastModifiedDate(Instant lastModifiedDate) {
-        this.setLastModifiedDate(lastModifiedDate);
-        return this;
+        return lastModifiedDate;
     }
 
     public void setLastModifiedDate(Instant lastModifiedDate) {
@@ -147,35 +110,4 @@ public class Photo implements Serializable {
         this.entityId = entityId;
     }
 
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Photo)) {
-            return false;
-        }
-        return getId() != null && getId().equals(((Photo) o).getId());
-    }
-
-    @Override
-    public int hashCode() {
-        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
-        return getClass().hashCode();
-    }
-
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "Photo{" +
-            "id=" + getId() +
-            ", path='" + getPath() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
-            ", createdDate='" + getCreatedDate() + "'" +
-            ", lastModifiedBy='" + getLastModifiedBy() + "'" +
-            ", lastModifiedDate='" + getLastModifiedDate() + "'" +
-            "}";
-    }
 }

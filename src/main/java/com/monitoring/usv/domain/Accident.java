@@ -1,32 +1,27 @@
 package com.monitoring.usv.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import java.io.Serializable;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.time.Instant;
 
-/**
- * A Accident.
- */
 @Entity
-@Table(name = "accident")
-@SuppressWarnings("common-java:DuplicatedBlocks")
-public class Accident implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+@Table(name = "accident", schema = "public")
+public class Accident {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "accident_id_gen")
+    @SequenceGenerator(name = "accident_id_gen", sequenceName = "accident_id_seq", allocationSize = 1)
+    @Column(name = "id", nullable = false)
     private Long id;
 
+    @Size(max = 255)
     @Column(name = "description")
     private String description;
 
-    @NotNull
     @Size(max = 50)
-    @Column(name = "created_by", length = 50, nullable = false)
+    @NotNull
+    @Column(name = "created_by", nullable = false, length = 50)
     private String createdBy;
 
     @NotNull
@@ -40,14 +35,6 @@ public class Accident implements Serializable {
     @Column(name = "last_modified_date")
     private Instant lastModifiedDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "inspections", "accidents", "services", "photos" }, allowSetters = true)
-    @JoinColumn(name = "vehicle_vin", nullable = false, referencedColumnName = "vin")
-    private Vehicle vehicle;
-
-    // jhipster-needle-entity-add-field - JHipster will add fields here
-
-
     public Long getId() {
         return id;
     }
@@ -57,12 +44,7 @@ public class Accident implements Serializable {
     }
 
     public String getDescription() {
-        return this.description;
-    }
-
-    public Accident description(String description) {
-        this.setDescription(description);
-        return this;
+        return description;
     }
 
     public void setDescription(String description) {
@@ -70,12 +52,7 @@ public class Accident implements Serializable {
     }
 
     public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public Accident createdBy(String createdBy) {
-        this.setCreatedBy(createdBy);
-        return this;
+        return createdBy;
     }
 
     public void setCreatedBy(String createdBy) {
@@ -83,12 +60,7 @@ public class Accident implements Serializable {
     }
 
     public Instant getCreatedDate() {
-        return this.createdDate;
-    }
-
-    public Accident createdDate(Instant createdDate) {
-        this.setCreatedDate(createdDate);
-        return this;
+        return createdDate;
     }
 
     public void setCreatedDate(Instant createdDate) {
@@ -96,12 +68,7 @@ public class Accident implements Serializable {
     }
 
     public String getLastModifiedBy() {
-        return this.lastModifiedBy;
-    }
-
-    public Accident lastModifiedBy(String lastModifiedBy) {
-        this.setLastModifiedBy(lastModifiedBy);
-        return this;
+        return lastModifiedBy;
     }
 
     public void setLastModifiedBy(String lastModifiedBy) {
@@ -109,60 +76,11 @@ public class Accident implements Serializable {
     }
 
     public Instant getLastModifiedDate() {
-        return this.lastModifiedDate;
-    }
-
-    public Accident lastModifiedDate(Instant lastModifiedDate) {
-        this.setLastModifiedDate(lastModifiedDate);
-        return this;
+        return lastModifiedDate;
     }
 
     public void setLastModifiedDate(Instant lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
     }
 
-    public Vehicle getVehicle() {
-        return this.vehicle;
-    }
-
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
-
-    public Accident vehicle(Vehicle vehicle) {
-        this.setVehicle(vehicle);
-        return this;
-    }
-
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Accident)) {
-            return false;
-        }
-        return getId() != null && getId().equals(((Accident) o).getId());
-    }
-
-    @Override
-    public int hashCode() {
-        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
-        return getClass().hashCode();
-    }
-
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "Accident{" +
-            "id=" + getId() +
-            ", description='" + getDescription() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
-            ", createdDate='" + getCreatedDate() + "'" +
-            ", lastModifiedBy='" + getLastModifiedBy() + "'" +
-            ", lastModifiedDate='" + getLastModifiedDate() + "'" +
-            "}";
-    }
 }

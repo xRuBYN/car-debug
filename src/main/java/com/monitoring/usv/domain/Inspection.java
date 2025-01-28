@@ -1,34 +1,27 @@
 package com.monitoring.usv.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import java.io.Serializable;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 
-/**
- * A Inspection.
- */
 @Entity
-@Table(name = "inspection")
-@SuppressWarnings("common-java:DuplicatedBlocks")
-public class Inspection implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+@Table(name = "inspection", schema = "public")
+public class Inspection {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inspection_id_gen")
+    @SequenceGenerator(name = "inspection_id_gen", sequenceName = "inspection_id_seq", allocationSize = 1)
+    @Column(name = "id", nullable = false)
     private Long id;
 
+    @Size(max = 255)
     @Column(name = "description")
     private String description;
 
-    @NotNull
     @Size(max = 50)
-    @Column(name = "created_by", length = 50, nullable = false)
+    @NotNull
+    @Column(name = "created_by", nullable = false, length = 50)
     private String createdBy;
 
     @NotNull
@@ -43,19 +36,11 @@ public class Inspection implements Serializable {
     private Instant lastModifiedDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "inspections", "accidents", "services", "photos" }, allowSetters = true)
-    @JoinColumn(name = "vehicle_vin", nullable = false, referencedColumnName = "vin")
-    private Vehicle vehicle;
-
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    @JoinColumn(name = "vehicle_vin", referencedColumnName = "vin")
+    private Vehicle vehicleVin;
 
     public Long getId() {
-        return this.id;
-    }
-
-    public Inspection id(Long id) {
-        this.setId(id);
-        return this;
+        return id;
     }
 
     public void setId(Long id) {
@@ -63,12 +48,7 @@ public class Inspection implements Serializable {
     }
 
     public String getDescription() {
-        return this.description;
-    }
-
-    public Inspection description(String description) {
-        this.setDescription(description);
-        return this;
+        return description;
     }
 
     public void setDescription(String description) {
@@ -76,12 +56,7 @@ public class Inspection implements Serializable {
     }
 
     public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public Inspection createdBy(String createdBy) {
-        this.setCreatedBy(createdBy);
-        return this;
+        return createdBy;
     }
 
     public void setCreatedBy(String createdBy) {
@@ -89,12 +64,7 @@ public class Inspection implements Serializable {
     }
 
     public Instant getCreatedDate() {
-        return this.createdDate;
-    }
-
-    public Inspection createdDate(Instant createdDate) {
-        this.setCreatedDate(createdDate);
-        return this;
+        return createdDate;
     }
 
     public void setCreatedDate(Instant createdDate) {
@@ -102,12 +72,7 @@ public class Inspection implements Serializable {
     }
 
     public String getLastModifiedBy() {
-        return this.lastModifiedBy;
-    }
-
-    public Inspection lastModifiedBy(String lastModifiedBy) {
-        this.setLastModifiedBy(lastModifiedBy);
-        return this;
+        return lastModifiedBy;
     }
 
     public void setLastModifiedBy(String lastModifiedBy) {
@@ -115,60 +80,19 @@ public class Inspection implements Serializable {
     }
 
     public Instant getLastModifiedDate() {
-        return this.lastModifiedDate;
-    }
-
-    public Inspection lastModifiedDate(Instant lastModifiedDate) {
-        this.setLastModifiedDate(lastModifiedDate);
-        return this;
+        return lastModifiedDate;
     }
 
     public void setLastModifiedDate(Instant lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
     }
 
-    public Vehicle getVehicle() {
-        return this.vehicle;
+    public Vehicle getVehicleVin() {
+        return vehicleVin;
     }
 
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
+    public void setVehicleVin(Vehicle vehicleVin) {
+        this.vehicleVin = vehicleVin;
     }
 
-    public Inspection vehicle(Vehicle vehicle) {
-        this.setVehicle(vehicle);
-        return this;
-    }
-
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Inspection)) {
-            return false;
-        }
-        return getId() != null && getId().equals(((Inspection) o).getId());
-    }
-
-    @Override
-    public int hashCode() {
-        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
-        return getClass().hashCode();
-    }
-
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "Inspection{" +
-            "id=" + getId() +
-            ", description='" + getDescription() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
-            ", createdDate='" + getCreatedDate() + "'" +
-            ", lastModifiedBy='" + getLastModifiedBy() + "'" +
-            ", lastModifiedDate='" + getLastModifiedDate() + "'" +
-            "}";
-    }
 }
