@@ -23,7 +23,7 @@ public class PlanConfig implements Serializable {
     private UUID id;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "account_type")
+    @Column(name = "plan_type")
     private PlanType planType = PlanType.FREE;
 
     @NotNull
@@ -102,13 +102,13 @@ public class PlanConfig implements Serializable {
         return getClass().hashCode();
     }
 
-    // prettier-ignore
     @Override
     public String toString() {
         return "PlanConfig{" +
-            "id=" + getId() +
-            ", price=" + getPrice() +
-            ", attempts=" + getAttempts() +
-            "}";
+                "id=" + id +
+                ", planType=" + planType +
+                ", price=" + price +
+                ", attempts=" + attempts +
+                '}';
     }
 }

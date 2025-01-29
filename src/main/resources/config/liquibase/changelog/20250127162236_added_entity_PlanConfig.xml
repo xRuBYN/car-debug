@@ -9,7 +9,7 @@
     -->
     <changeSet id="20250127162236-1" author="ursu">
         <createTable tableName="plan_config">
-            <column name="id" type="bigserial">
+            <column name="id" type="uuid">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="plan_type" type="varchar(50)">

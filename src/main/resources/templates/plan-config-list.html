@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Plan Config List</title>
+</head>
+<body>
+<h1>Plan Config List</h1>
+
+<a href="/api/mvc/plan-config/form"><button>Add New Plan</button></a>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Plan Type</th>
+    <th>Price</th>
+    <th>Attempts</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="plan : ${planConfigs}">
+    <td th:text="${plan.id}"></td>
+    <td th:text="${plan.planType}"></td>
+    <td th:text="${plan.price}"></td>
+    <td th:text="${plan.attempts}"></td>
+    <td>
+      <a th:href="@{/api/mvc/plan-config/edit/{id}(id=${plan.id})}"><button>Edit</button></a>
+      <a th:href="@{/api/mvc/plan-config/detail/{id}(id=${plan.id})}" > <button>Details</button> </a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

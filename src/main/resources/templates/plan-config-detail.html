@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Plan Config Details</title>
+</head>
+<body>
+<h1>Plan Config Details</h1>
+
+<p><strong>ID:</strong> <span th:text="${planConfig.id}"></span></p>
+<p><strong>Plan Type:</strong> <span th:text="${planConfig.planType}"></span></p>
+<p><strong>Price:</strong> <span th:text="${planConfig.price}"></span></p>
+<p><strong>Attempts:</strong> <span th:text="${planConfig.attempts}"></span></p>
+
+<!-- Edit and Back Buttons -->
+<a th:href="@{/api/mvc/plan-config/edit/{id}(id=${planConfig.id})}"><button>Edit</button></a>
+<a href="/api/mvc/plan-config/list"><button>Back to List</button></a>
+</body>
+</html>

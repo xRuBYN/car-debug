@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Plan Config Form</title>
+</head>
+<body>
+<h1>Create Plan Config</h1>
+<form th:action="@{/api/mvc/plan-config/save}" th:object="${planConfig}" method="post">
+  <!-- Plan Type -->
+  <label for="planType">Plan Type:</label>
+  <select id="planType" name="planType" th:field="*{planType}">
+    <option value="FREE" th:selected="*{planType == 'FREE'}">FREE</option>
+    <option value="PREMIUM" th:selected="*{planType == 'PREMIUM'}">PREMIUM</option>
+    <option value="PRO" th:selected="*{planType == 'PRO'}">PRO</option>
+  </select>
+  <br/><br/>
+
+  <!-- Price -->
+  <label for="price">Price:</label>
+  <input type="number" id="price" name="price" th:field="*{price}" step="2.0" required />
+  <br/><br/>
+
+  <!-- Attempts -->
+  <label for="attempts">Attempts:</label>
+  <input type="number" id="attempts" name="attempts" th:field="*{attempts}" required />
+  <br/><br/>
+
+  <!-- Submit Button -->
+  <button type="submit">Submit</button>
+</form>
+</body>
+</html>

@@ -18,8 +18,7 @@ public class OrderHistory implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -31,6 +30,10 @@ public class OrderHistory implements Serializable {
     @Column(name = "plan_type")
     @Enumerated(EnumType.STRING)
     private PlanType planType;
+
+    @Column
+    @NotNull
+    private Long attempts;
 
     @NotNull
     @Column(name = "amount", precision = 21, scale = 2, nullable = false)
@@ -141,6 +144,14 @@ public class OrderHistory implements Serializable {
 
     public void setLastModifiedDate(Instant lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public Long getAttempts() {
+        return attempts;
+    }
+
+    public void setAttempts(Long attempts) {
+        this.attempts = attempts;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
