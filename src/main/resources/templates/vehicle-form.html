@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Create Vehicle</title>
+</head>
+<body>
+<h1>Create a New Vehicle</h1>
+
+<form th:action="@{/api/mvc/vehicle/save}" th:object="${vehicle}" method="post">
+
+  <!-- VIN -->
+  <label for="vin">VIN:</label>
+  <input type="text" id="vin" name="vin" th:field="*{vin}" required />
+  <br/><br/>
+
+  <!-- Make -->
+  <label for="make">Make:</label>
+  <input type="text" id="make" name="make" th:field="*{make}" required />
+  <br/><br/>
+
+  <!-- Model -->
+  <label for="model">Model:</label>
+  <input type="text" id="model" name="model" th:field="*{model}" required />
+  <br/><br/>
+
+  <!-- Year -->
+  <label for="year">Year:</label>
+  <input type="number" id="year" name="year" th:field="*{year}" required />
+  <br/><br/>
+
+  <label for="color">Color:</label>
+  <input type="text" id="color" name="color" th:field="*{color}" required />
+  <br/><br/>
+
+  <label for="fuelType">FuelType:</label>
+  <input type="text" id="fuelType" name="fuelType" th:field="*{fuelType}" required />
+  <br/><br/>
+
+  <label for="engineDescription">EngineDescription:</label>
+  <input type="text" id="engineDescription" name="engineDescription" th:field="*{engineDescription}" required />
+  <br/><br/>
+
+  <button type="submit">Save Vehicle</button>
+
+<br/>
+<a href="/api/mvc/vehicle/list">View All Vehicles</a>
+</body>
+</html>

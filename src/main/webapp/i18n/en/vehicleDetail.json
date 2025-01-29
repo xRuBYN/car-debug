@@ -1,0 +1,26 @@
+{
+  "monitoringApp": {
+    "vehicleDetail": {
+      "home": {
+        "title": "Vehicle Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Vehicle Detail",
+        "createOrEditLabel": "Create or edit a Vehicle Detail",
+        "notFound": "No Vehicle Details found"
+      },
+      "created": "A new Vehicle Detail is created with identifier {{ param }}",
+      "updated": "A Vehicle Detail is updated with identifier {{ param }}",
+      "deleted": "A Vehicle Detail is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Vehicle Detail {{ id }}?"
+      },
+      "detail": {
+        "title": "Vehicle Detail"
+      },
+      "id": "Id",
+      "color": "Color",
+      "engineDescription": "Engine Description",
+      "fuelType": "Fuel Type"
+    }
+  }
+}

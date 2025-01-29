@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (vehicleDetail(); as vehicleDetailRef) {
+      <div>
+        <h2 data-cy="vehicleDetailDetailsHeading"><span jhiTranslate="monitoringApp.vehicleDetail.detail.title">Vehicle Detail</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="monitoringApp.vehicleDetail.id">Id</span></dt>
+          <dd>
+            <span>{{ vehicleDetailRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.vehicleDetail.color">Color</span></dt>
+          <dd>
+            <span>{{ vehicleDetailRef.color }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.vehicleDetail.engineDescription">Engine Description</span></dt>
+          <dd>
+            <span>{{ vehicleDetailRef.engineDescription }}</span>
+          </dd>
+          <dt><span jhiTranslate="monitoringApp.vehicleDetail.fuelType">Fuel Type</span></dt>
+          <dd>
+            <span>{{ vehicleDetailRef.fuelType }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/vehicle-detail', vehicleDetailRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

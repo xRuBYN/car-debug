@@ -1,0 +1,26 @@
+{
+  "monitoringApp": {
+    "vehicleDetail": {
+      "home": {
+        "title": "Vehicle Details",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Vehicle Detail",
+        "createOrEditLabel": "Создать или отредактировать Vehicle Detail",
+        "notFound": "Vehicle Details не найдено"
+      },
+      "created": "Новый Vehicle Detail создан с идентификатором {{ param }}",
+      "updated": "Vehicle Detail обновлен с идентификатором {{ param }}",
+      "deleted": "Vehicle Detail удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Vehicle Detail {{ id }}?"
+      },
+      "detail": {
+        "title": "Vehicle Detail"
+      },
+      "id": "Id",
+      "color": "Color",
+      "engineDescription": "Engine Description",
+      "fuelType": "Fuel Type"
+    }
+  }
+}

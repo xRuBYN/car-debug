@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Vehicle Details</title>
+</head>
+<body>
+<h1>Vehicle Details</h1>
+
+<p><strong>VIN:</strong> <span th:text="${vehicle.vin}"></span></p>
+<p><strong>Make:</strong> <span th:text="${vehicle.make}"></span></p>
+<p><strong>Model:</strong> <span th:text="${vehicle.model}"></span></p>
+<p><strong>Year:</strong> <span th:text="${vehicle.year}"></span></p>
+<p><strong>Color:</strong> <span th:text="${vehicle.color}"></span></p>
+<p><strong>Engine:</strong> <span th:text="${vehicle.engineDescription}"></span></p>
+<p><strong>FuelType:</strong> <span th:text="${vehicle.fuelType}"></span></p>
+
+<br/>
+<a href="/api/mvc/vehicle/list">Back to List</a>
+</body>
+</html>

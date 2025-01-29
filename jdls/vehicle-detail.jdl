@@ -1,0 +1,6 @@
+entity VehicleDetail {
+  @id id Long
+  color String
+  engineDescription String
+  fuelType String
+}

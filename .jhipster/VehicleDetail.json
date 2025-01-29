@@ -1,0 +1,30 @@
+{
+  "annotations": {
+    "changelogDate": "20250129193850"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "color",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "engineDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fuelType",
+      "fieldType": "String"
+    }
+  ],
+  "name": "VehicleDetail",
+  "relationships": [],
+  "searchEngine": "no"
+}

@@ -2,11 +2,11 @@ package com.monitoring.usv.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Service.
@@ -37,25 +37,26 @@ public class Service implements Serializable {
     @NotNull
     @Size(max = 50)
     @Column(name = "created_by", length = 50, nullable = false)
-    private String createdBy;
+    private String createdBy = "system";
 
     @NotNull
     @Column(name = "created_date", nullable = false)
-    private Instant createdDate;
+    private Instant createdDate = Instant.now();
 
     @Size(max = 50)
     @Column(name = "last_modified_by", length = 50)
-    private String lastModifiedBy;
+    private String lastModifiedBy = "system";
 
     @Column(name = "last_modified_date")
-    private Instant lastModifiedDate;
+    private Instant lastModifiedDate = Instant.now();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "inspections", "accidents", "services", "photos" }, allowSetters = true)
     @JoinColumn(name = "vehicle_vin", nullable = false, referencedColumnName = "vin")
     private Vehicle vehicle;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    public Service() {
+    }
 
     public Long getId() {
         return this.id;

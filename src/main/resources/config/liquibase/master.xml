@@ -18,6 +18,7 @@
     <include file="config/liquibase/changelog/20250127162239_added_entity_Accident.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250127162240_added_entity_Service.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250127162241_added_entity_Photo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20250129193850_added_entity_VehicleDetail.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20250127162238_added_entity_constraints_Inspection.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20250127162239_added_entity_constraints_Accident.xml" relativeToChangelogFile="false"/>

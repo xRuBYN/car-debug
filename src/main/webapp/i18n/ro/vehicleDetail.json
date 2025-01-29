@@ -1,0 +1,26 @@
+{
+  "monitoringApp": {
+    "vehicleDetail": {
+      "home": {
+        "title": "Vehicle Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Creeare o nouă entitate Vehicle Detail",
+        "createOrEditLabel": "Creeare sau editare Vehicle Detail",
+        "notFound": "No Vehicle Details found"
+      },
+      "created": "A fost creată o nouă entitate Vehicle Detail cu identificatorul {{ param }}",
+      "updated": "Vehicle Detail cu identificatorul {{ param }} a fost actualizată",
+      "deleted": "Vehicle Detail cu identificatorul {{ param }} a fost ștearsă",
+      "delete": {
+        "question": "Sunteți sigur că doriți să ștergeți Vehicle Detail {{ id }}?"
+      },
+      "detail": {
+        "title": "Vehicle Detail"
+      },
+      "id": "Id",
+      "color": "Color",
+      "engineDescription": "Engine Description",
+      "fuelType": "Fuel Type"
+    }
+  }
+}

@@ -1,6 +1,7 @@
 package com.monitoring.usv.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.monitoring.usv.service.dto.VehicleDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
@@ -40,8 +41,8 @@ public class Vehicle implements Serializable {
     @Column(name = "year", nullable = false)
     private Integer year;
 
-    @Transient
-    private boolean isPersisted;
+    @OneToOne(mappedBy = "vehicle", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private VehicleDetail vehicleDetail;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "vehicle")
     @JsonIgnoreProperties(value = { "photos", "vehicle" }, allowSetters = true)
@@ -55,7 +56,15 @@ public class Vehicle implements Serializable {
     @JsonIgnoreProperties(value = { "photos", "vehicle" }, allowSetters = true)
     private Set<Service> services = new HashSet<>();
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    public Vehicle() {
+    }
+
+    public Vehicle(VehicleDTO vehicleDTO) {
+        this.vin = vehicleDTO.getVin();
+        this.make = vehicleDTO.getMake();
+        this.model = vehicleDTO.getModel();
+        this.year = vehicleDTO.getYear();
+    }
 
     public String getVin() {
         return this.vin;
@@ -208,6 +217,14 @@ public class Vehicle implements Serializable {
 
     public Long getId() {
         return id;
+    }
+
+    public VehicleDetail getVehicleDetail() {
+        return vehicleDetail;
+    }
+
+    public void setVehicleDetail(VehicleDetail vehicleDetail) {
+        this.vehicleDetail = vehicleDetail;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
