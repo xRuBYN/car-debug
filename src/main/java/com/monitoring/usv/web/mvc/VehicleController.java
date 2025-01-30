@@ -5,22 +5,21 @@ import com.monitoring.usv.domain.VehicleDetail;
 import com.monitoring.usv.repository.VehicleDetailRepository;
 import com.monitoring.usv.repository.VehicleRepository;
 import com.monitoring.usv.service.dto.VehicleDTO;
+import java.util.List;
+import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
-
 @Controller
 @RequestMapping("/api/mvc/vehicle")
 public class VehicleController {
+
     private static final Logger log = LoggerFactory.getLogger(VehicleController.class);
     private final VehicleRepository vehicleRepository;
     private final VehicleDetailRepository vehicleDetailRepository;
-
 
     public VehicleController(VehicleRepository vehicleRepository, VehicleDetailRepository vehicleDetailRepository) {
         this.vehicleRepository = vehicleRepository;
@@ -53,7 +52,7 @@ public class VehicleController {
     @GetMapping("/detail/{id}")
     public String showVehicleDetail(@PathVariable Long id, Model model) {
         Optional<Vehicle> vehicle = vehicleRepository.findById(id);
-        if(vehicle.isPresent()) {
+        if (vehicle.isPresent()) {
             model.addAttribute("vehicle", new VehicleDTO(vehicle.get()));
             return "vehicle-detail";
         }
@@ -86,6 +85,13 @@ public class VehicleController {
             vehicleEntity.getVehicleDetail().setFuelType(vehicleDTO.getFuelType());
             vehicleRepository.save(vehicleEntity);
         }
+        return "redirect:/api/mvc/vehicle/list";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        log.info("Show delete Vehicle with id: {}", id);
+        vehicleRepository.deleteById(id);
         return "redirect:/api/mvc/vehicle/list";
     }
 }

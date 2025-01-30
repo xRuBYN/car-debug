@@ -1,34 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <title>Vehicle List</title>
-</head>
-<body>
-<h1>List of Vehicles</h1>
-<table border="1">
-  <thead>
-  <tr>
-    <th>VIN</th>
-    <th>Make</th>
-    <th>Model</th>
-    <th>Year</th>
-    <th>Details</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="vehicle : ${vehicles}">
-    <td th:text="${vehicle.vin}"></td>
-    <td th:text="${vehicle.make}"></td>
-    <td th:text="${vehicle.model}"></td>
-    <td th:text="${vehicle.year}"></td>
-    <td>
-      <a th:href="@{/api/mvc/vehicle/detail/{id}(id=${vehicle.id})}">View Details</a>
-      <a th:href="@{/api/mvc/vehicle/edit/{id}(id=${vehicle.id})}">Edit</a>
-    </td>
-  </tr>
-  </tbody>
-</table>
-<br/>
-<a href="/api/mvc/vehicle/form">Add New Vehicle</a>
-</body>
+  <head>
+    <title>Vehicle List</title>
+  </head>
+  <body>
+    <h1>List of Vehicles</h1>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>VIN</th>
+          <th>Make</th>
+          <th>Model</th>
+          <th>Year</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="vehicle : ${vehicles}">
+          <td th:text="${vehicle.vin}"></td>
+          <td th:text="${vehicle.make}"></td>
+          <td th:text="${vehicle.model}"></td>
+          <td th:text="${vehicle.year}"></td>
+          <td>
+            <a th:href="@{/api/mvc/vehicle/detail/{id}(id=${vehicle.id})}">View Details</a>
+            <a th:href="@{/api/mvc/vehicle/edit/{id}(id=${vehicle.id})}">Edit</a>
+            <a th:href="@{/api/mvc/vehicle/delete/{id}(id=${vehicle.id})}">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <a href="/api/mvc/vehicle/form">Add New Vehicle</a>
+  </body>
 </html>
