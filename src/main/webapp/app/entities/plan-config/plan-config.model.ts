@@ -1,5 +1,6 @@
 export interface IPlanConfig {
-  id: number;
+  id: string;
+  planType?: string | null;
   price?: number | null;
   attempts?: number | null;
 }

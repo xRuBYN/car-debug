@@ -41,7 +41,7 @@ export class PlanConfigComponent implements OnInit {
   protected modalService = inject(NgbModal);
   protected ngZone = inject(NgZone);
 
-  trackId = (_index: number, item: IPlanConfig): number => this.planConfigService.getPlanConfigIdentifier(item);
+  trackId = (_index: number, item: IPlanConfig): string => this.planConfigService.getPlanConfigIdentifier(item);
 
   ngOnInit(): void {
     this.subscription = combineLatest([this.activatedRoute.queryParamMap, this.activatedRoute.data])

@@ -18,7 +18,20 @@
             <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
           </div>
         }
-
+        @if (editForm.controls.planType.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_plan_type">PlanType</label>
+            <input
+              type="text"
+              class="form-control"
+              name="planType"
+              id="field_plan_type"
+              data-cy="planType"
+              formControlName="planType"
+              [readonly]="true"
+            />
+          </div>
+        }
         @let priceRef = editForm.get('price')!;
         <div class="mb-3">
           <label class="form-label" for="field_price" jhiTranslate="monitoringApp.planConfig.price">Price</label>

@@ -23,6 +23,10 @@ export class PlanConfigService {
     return this.http.post<IPlanConfig>(this.resourceUrl, planConfig, { observe: 'response' });
   }
 
+  purchasePlan(planConfigId: string): Observable<any> {
+    return this.http.post(`${this.resourceUrl}/purchase/${planConfigId}`, { observe: 'response' });
+  }
+
   update(planConfig: IPlanConfig): Observable<EntityResponseType> {
     return this.http.put<IPlanConfig>(`${this.resourceUrl}/${this.getPlanConfigIdentifier(planConfig)}`, planConfig, {
       observe: 'response',
@@ -44,11 +48,11 @@ export class PlanConfigService {
     return this.http.get<IPlanConfig[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  delete(id: number): Observable<HttpResponse<{}>> {
+  delete(id: string): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
-  getPlanConfigIdentifier(planConfig: Pick<IPlanConfig, 'id'>): number {
+  getPlanConfigIdentifier(planConfig: Pick<IPlanConfig, 'id'>): string {
     return planConfig.id;
   }
 

@@ -42,6 +42,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="planType">
+              <div class="d-flex">
+                <span>Plan Type</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+
             <th scope="col" jhiSortBy="price">
               <div class="d-flex">
                 <span jhiTranslate="monitoringApp.planConfig.price">Price</span>
@@ -65,6 +72,7 @@
               <td>
                 <a [routerLink]="['/plan-config', planConfig.id, 'view']">{{ planConfig.id }}</a>
               </td>
+              <td>{{ planConfig.planType }}</td>
               <td>{{ planConfig.price }}</td>
               <td>{{ planConfig.attempts }}</td>
               <td class="text-end">

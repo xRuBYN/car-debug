@@ -40,6 +40,10 @@ export class VehicleService {
     return this.http.get<IVehicle[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
+  generateReport(id: string): Observable<HttpResponse<{}>> {
+    return this.http.get(`${this.resourceUrl}/generate-report/${id}`, { observe: 'response' });
+  }
+
   delete(id: string): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }

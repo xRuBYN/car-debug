@@ -18,6 +18,7 @@ type PlanConfigFormDefaults = Pick<NewPlanConfig, 'id'>;
 
 type PlanConfigFormGroupContent = {
   id: FormControl<IPlanConfig['id'] | NewPlanConfig['id']>;
+  planType: FormControl<IPlanConfig['planType']>;
   price: FormControl<IPlanConfig['price']>;
   attempts: FormControl<IPlanConfig['attempts']>;
 };
@@ -39,6 +40,7 @@ export class PlanConfigFormService {
           validators: [Validators.required],
         },
       ),
+      planType: new FormControl(planConfigRawValue.planType),
       price: new FormControl(planConfigRawValue.price, {
         validators: [Validators.required],
       }),

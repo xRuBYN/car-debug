@@ -80,6 +80,10 @@ export class VehicleComponent implements OnInit {
     this.handleNavigation(event);
   }
 
+  generateReport(vin: string): void {
+    this.vehicleService.generateReport(vin).subscribe();
+  }
+
   protected fillComponentAttributeFromRoute(params: ParamMap, data: Data): void {
     this.sortState.set(this.sortService.parseSortParam(params.get(SORT) ?? data[DEFAULT_SORT_DATA]));
   }

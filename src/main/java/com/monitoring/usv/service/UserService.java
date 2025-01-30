@@ -293,4 +293,14 @@ public class UserService {
     public List<String> getAuthorities() {
         return authorityRepository.findAll().stream().map(Authority::getName).toList();
     }
+
+    public void addUserAttempts(Long userId, Long attempts) {
+        LOG.info("Adding user attempts to {}", userId);
+        userRepository.updatePurchasedAttemptsByUserId(userId, attempts);
+    }
+
+    public void useAttempt(Long userId, Long attempts) {
+        LOG.info("Use user attempts to {}", userId);
+        userRepository.updateUsedAttemptsByUserId(userId, attempts);
+    }
 }

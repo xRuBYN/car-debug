@@ -10,4 +10,4 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface BankCardRepository extends JpaRepository<BankCard, UUID> {}
+public interface BankCardRepository extends JpaRepository<BankCard, Long> {}

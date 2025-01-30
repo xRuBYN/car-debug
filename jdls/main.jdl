@@ -18,7 +18,7 @@ entity PlanConfig {
 }
 
 entity Vehicle {
-  @id vin String required,
+  vin String required,
   make String required,
   model String required,
   year Integer required,

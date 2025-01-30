@@ -39,6 +39,7 @@ import {
   faWrench,
   // jhipster-needle-add-icon-import
 } from '@fortawesome/free-solid-svg-icons';
+import { faDollarSign } from '@fortawesome/free-solid-svg-icons/faDollarSign';
 
 export const fontAwesomeIcons = [
   faArrowLeft,
@@ -79,5 +80,6 @@ export const fontAwesomeIcons = [
   faUsers,
   faUsersCog,
   faWrench,
+  faDollarSign,
   // jhipster-needle-add-icon-import
 ];

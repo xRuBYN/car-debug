@@ -1,0 +1,21 @@
+{
+  "annotations": {
+    "changelogDate": "20250130133625"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "price",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "attempts",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "PlanConfig",
+  "relationships": [],
+  "searchEngine": "no"
+}

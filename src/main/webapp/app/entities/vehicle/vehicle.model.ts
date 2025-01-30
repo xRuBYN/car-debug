@@ -1,4 +1,5 @@
 export interface IVehicle {
+  id?: number | null;
   vin: string;
   make?: string | null;
   model?: string | null;
